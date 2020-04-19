@@ -1,4 +1,4 @@
-#実行するとデスクトップのresult_csvに保存される
+#実行するとデスクトップのresult_csvディレクトリに保存される
 
 from bs4 import BeautifulSoup
 import requests
@@ -27,6 +27,7 @@ def get_google_result(kw):
 		se = pd.Series([title, page_url], columns)
 		df = df.append(se, columns)
 		try:
+			#以下にPCのユーザー名を記入する。windowsの場合はパスを変更する。
 			df.to_csv('/Users/ユーザー名/Desktop/result_csv/{}.csv'.format(word))
 		except Exception:
 			os.system('cd ~/Desktop ;mkdir result_csv')
