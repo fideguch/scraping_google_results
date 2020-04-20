@@ -1,4 +1,5 @@
 #実行するとデスクトップのresult_csvディレクトリに保存される
+#MacOSでの実行を想定
 
 from bs4 import BeautifulSoup
 import requests
@@ -31,7 +32,8 @@ def get_google_result(kw):
 			df.to_csv('/Users/ユーザー名/Desktop/result_csv/{}.csv'.format(word))
 		except Exception:
 			os.system('cd ~/Desktop ;mkdir result_csv')
-			df.to_csv('/Users/fumito.i/Desktop/result_csv/{}.csv'.format(word))
+			#以下にPCのユーザー名を記入する。windowsの場合はパスを変更する。
+			df.to_csv('/Users/ユーザー名/Desktop/result_csv/{}.csv'.format(word))
 	print("「{}」の検索結果を、csv形式で保存しました".format(word))
 
 try:
